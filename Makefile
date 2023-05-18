@@ -6,7 +6,7 @@
 #    By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 10:44:04 by plertsir          #+#    #+#              #
-#    Updated: 2023/05/18 14:39:12 by plertsir         ###   ########.fr        #
+#    Updated: 2023/05/18 17:09:08 by plertsir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ clean:
 
 fclean: clean
 		rm -rf $(LIBFT)
-		rm -tf $(NAME)
+		rm -rf $(NAME)
 
 re:
 		$(MAKE) fclean
