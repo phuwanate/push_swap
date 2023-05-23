@@ -15,7 +15,7 @@
 #include "libft.h"
 #include "push_swap.h"
 
-t_stack	*make_stack(int capacity)
+static t_stack	*make_stack(int capacity)
 {
 	t_stack	*stack;
 
@@ -33,14 +33,14 @@ t_stack	*make_stack(int capacity)
 	return (stack);
 }
 
-void	get_val(t_stack *stack_a, char *s)
+static void	get_val(t_stack *stack_a, char *s)
 {
 	char	**arg_split;
 	int		i;
 
 	arg_split = ft_split(s, ' ');
 	if (!arg_split)
-		exit (1);
+		force_quit (1);
 	i = 0;
 	while (arg_split[i])
 	{
@@ -48,6 +48,28 @@ void	get_val(t_stack *stack_a, char *s)
 		i++;
 	}
 	free_split (arg_split);
+}
+
+void visulize(t_stack *stack_a, t_stack *stack_b)
+{
+	int i = 0;
+	printf("size of stack A %d \n", stack_a->size);
+	printf("size of stack B %d \n", stack_b->size);
+	printf("-     -\n");
+	while(i < stack_a->max)
+	{
+		if(is_empty(stack_a))
+			printf("      ");
+		else
+			printf("%d     ", stack_a->nb[i]);
+		if(is_empty(stack_b))
+			printf("      \n");
+		else
+			printf("%d\n", stack_b->nb[i]);
+		i++;
+	}
+	printf("-     -\n");
+	printf("A     B\n");
 }
 
 int	main(int ac, char *av[])
@@ -65,13 +87,13 @@ int	main(int ac, char *av[])
 	{
 		get_val(stack_a, av[i]);
 		i++;
-	}
-	i = 0;
-	while (i < stack_a->size)
-	{
-		printf("  %d           %d\n", stack_a->nb[i], stack_b->nb[i]);
-		i++;
-	}
-	printf("stack A    stack B");
+	}	
+	printf("\nBefore sort\n\n");
+	get_index(stack_a->nb, stack_b->nb, stack_a->size);
+	visulize(stack_a, stack_b);
+	radix(stack_a, stack_b);
+	printf("----------------------");
+	printf("\nAfter sorted\n\n");
+	visulize(stack_a, stack_b);
 	free_stack(stack_a, stack_b);
 }

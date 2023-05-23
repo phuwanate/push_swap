@@ -25,7 +25,8 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = push_swap.c push.c utils.c free_mem.c
+SOURCES_LIST = push_swap.c get_stack.c utils.c free_mem.c get_index.c\
+			   radix_sort.c move.c update_stack.c
 
 OBJECTS_DIRECTORY = objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))

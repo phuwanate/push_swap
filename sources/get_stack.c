@@ -15,12 +15,8 @@
 
 int	push(t_stack *stack, int val)
 {
-	// if (is_full(stack))
-	// {
-	// 	printf("ERROR");
-	// 	return (1);
-	// }
 	stack->nb[stack->size] = val;
 	stack->size++;
+	stack->max = stack->size;
 	return (0);
 }
