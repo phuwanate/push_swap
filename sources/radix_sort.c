@@ -21,7 +21,6 @@ void radix(t_stack *stack_a, t_stack *stack_b)
 	int max_bits;
 	int max_num;
 
-	stack_b->size = 0;
 	max_num = stack_a->size - 1;
 	max_bits = get_bits(max_num);
 
@@ -30,7 +29,7 @@ void radix(t_stack *stack_a, t_stack *stack_b)
 	{
 	 	while(stack_a->size)
 	 		pb(stack_a, stack_b);
- 	j++;
+ 		j++;
  	}
 	while(stack_b->size)
  		pa(stack_a, stack_b);

@@ -26,10 +26,9 @@ void	free_split(char **arg_split)
 	free(arg_split);
 }
 
-void	free_stack(t_stack *stack_a, t_stack *stack_b)
+void	free_stack(t_stack *stack)
 {
-	free(stack_a->nb);
-	free(stack_a);
-	free(stack_b->nb);
-	free(stack_b);
+	if(stack->nb)
+		free(stack->nb);
+	free(stack);
 }

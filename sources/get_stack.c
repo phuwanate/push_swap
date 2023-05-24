@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 #include <stdio.h>
 
-int	push(t_stack *stack, int val)
+int	push(t_stack *stack_a, int val)
 {
-	stack->nb[stack->size] = val;
-	stack->size++;
-	stack->max = stack->size;
+	stack_a->nb[stack_a->size] = val;
+	stack_a->size++;
+	stack_a->max = stack_a->size;
 	return (0);
 }

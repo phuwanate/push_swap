@@ -21,33 +21,34 @@ static t_stack	*make_stack(int capacity)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		return (NULL);
+		return(NULL);
 	stack->nb = malloc(sizeof(int) * capacity);
 	if (!(stack->nb))
 	{
 		free(stack);
-		return (NULL);
+		return(NULL);
 	}
 	stack->capacity = capacity;
 	stack->size = 0;
 	return (stack);
 }
 
-static void	get_val(t_stack *stack_a, char *s)
+static int	get_val(t_stack *stack_a, t_stack *stack_b, char *s)
 {
 	char	**arg_split;
 	int		i;
 
 	arg_split = ft_split(s, ' ');
 	if (!arg_split)
-		force_quit (1);
+		force_quit(1, stack_a, stack_b);
 	i = 0;
 	while (arg_split[i])
 	{
-		push(stack_a, ft_atoi(arg_split[i]));
+		push(stack_a, re_atoi(arg_split[i], stack_a, stack_b));
 		i++;
 	}
 	free_split (arg_split);
+	return (0);
 }
 
 void visulize(t_stack *stack_a, t_stack *stack_b)
@@ -78,22 +79,22 @@ int	main(int ac, char *av[])
 	t_stack	*stack_b;
 	int		i;
 
+	if(ac < 2)
+		exit(1);
 	stack_a = make_stack(ac - 1);
 	stack_b = make_stack(ac - 1);
-	if (!stack_a || !stack_b)
-		exit (1);
+	if(!stack_a || !stack_b)
+		force_quit(1, stack_a, stack_b);
 	i = 1;
 	while (i < ac)
-	{
-		get_val(stack_a, av[i]);
-		i++;
-	}	
-	printf("\nBefore sort\n\n");
-	get_index(stack_a->nb, stack_b->nb, stack_a->size);
+		get_val(stack_a, stack_b, av[i++]);
+	dup_check(stack_a, stack_b);
+	get_index(stack_a, stack_b);
 	visulize(stack_a, stack_b);
 	radix(stack_a, stack_b);
 	printf("----------------------");
 	printf("\nAfter sorted\n\n");
 	visulize(stack_a, stack_b);
-	free_stack(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
