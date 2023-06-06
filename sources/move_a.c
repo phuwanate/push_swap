@@ -17,13 +17,13 @@
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {	
 	ft_putendl_fd("pa", 1);
+	stack_a->size++;
 	if (stack_a->size > 1)
 		move_down(stack_a);
 	stack_a->nb[0] = stack_b->nb[0];
 	move_up(stack_b);
 	stack_b->nb[stack_b->size - 1] = 0;
 	stack_b->size--;
-	stack_a->size++;
 }
 
 void	ra(t_stack *stack_a)

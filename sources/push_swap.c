@@ -47,7 +47,7 @@ static int	get_val(t_stack *stack_a, t_stack *stack_b, char *s)
 		push(stack_a, re_atoi(arg_split[i], stack_a, stack_b));
 		i++;
 	}
-	stack_b->max = stack_a->max;
+	//stack_b->max = stack_a->max;
 	free_split (arg_split);
 	return (0);
 }
@@ -115,7 +115,7 @@ int	main(int ac, char *av[])
 	printf("----------------------");
 	printf("\nAfter sorted\n\n");
 	visulize(stack_a, stack_b);
-	printf("stack max : %d\n", stack_a->max);
+	//printf("stack max : %d\n", stack_a->max);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

@@ -16,13 +16,13 @@
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {	
 	ft_putendl_fd("pb", 1);
+	stack_b->size++;
 	if (stack_b->size > 1)
 		move_down(stack_b);
 	stack_b->nb[0] = stack_a->nb[0];
 	move_up(stack_a);
 	stack_a->nb[stack_a->size - 1] = 0;
 	stack_a->size--;
-	stack_b->size++;
 }
 
 void	sb(t_stack *stack_b)

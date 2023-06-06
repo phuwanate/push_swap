@@ -19,6 +19,6 @@ int	push(t_stack *stack_a, int val)
 	stack_a->nb[stack_a->size] = val;
 	stack_a->size++;
 	stack_a->max = stack_a->size;
-	printf("%d\n", stack_a->max);
+	//printf("%d\n", stack_a->max);
 	return (0);
 }

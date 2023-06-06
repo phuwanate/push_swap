@@ -28,8 +28,7 @@ void	move_up(t_stack *stack)
 void	move_down(t_stack *stack)
 {
 	int		i;
-
-	i = stack->size;
+	i = stack->size - 1;
 	while (i > 0)
 	{
 		stack->nb[i] = stack->nb[i - 1];
