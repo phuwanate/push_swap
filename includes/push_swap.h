@@ -23,7 +23,6 @@ typedef struct s_stack
 
 int		get_capa(char *s);
 int		push(t_stack *stack_a, int val);
-void	destroy_stack(t_stack *stack);
 int		is_full(t_stack *stack);
 int		is_empty(t_stack *stack);
 void	free_split(char **arg_split);

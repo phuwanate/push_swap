@@ -14,12 +14,6 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	destroy_stack(t_stack *stack)
-{
-	free(stack->nb);
-	free(stack);
-}
-
 int	is_empty(t_stack *stack)
 {
 	return (stack->size <= 0);
