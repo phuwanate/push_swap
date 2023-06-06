@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:50:59 by plertsir          #+#    #+#             */
-/*   Updated: 2023/05/18 14:29:25 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 10:27:20 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	destroy_stack(t_stack *stack)
 
 int	is_empty(t_stack *stack)
 {
-	return (stack->size <= 0);	
+	return (stack->size <= 0);
 }
 
-void set_zero(int *arr, unsigned int size)
+void	set_zero(int *arr, unsigned int size)
 {
 	unsigned int	i;
 
@@ -37,12 +37,12 @@ void set_zero(int *arr, unsigned int size)
 	}
 }
 
-void force_quit(int nb, t_stack *stack_a, t_stack *stack_b)
+void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b)
 {
-	if(stack_a)
-			free_stack(stack_a);
-	if(stack_b)
-			free_stack(stack_b);
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
 	if (nb == 0)
 	{
 		ft_putstr_fd("OK\n", 1);
@@ -55,7 +55,7 @@ void force_quit(int nb, t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void dup_check(t_stack *stack_a, t_stack *stack_b)
+void	dup_check(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 	int	j;

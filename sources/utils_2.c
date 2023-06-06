@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/06 13:39:04 by plertsir          #+#    #+#             */
+/*   Updated: 2023/06/06 13:39:04 by plertsir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
-static int is_valid(char *s)
+static int	is_valid(char *s)
 {
 	int		i;
 
@@ -15,27 +27,27 @@ static int is_valid(char *s)
 	return (0);
 }
 
-static int check_result(int num1, int num2, int sign)
+static int	check_result(int num1, int num2, int sign)
 {
-    if (((sign > 0) && (num1 > 2147483647 - num2)) ||
-		((sign < 0) && (num1 > 2147483648 - num2)))
+	if (((sign > 0) && (num1 > 2147483647 - num2))
+		|| ((sign < 0) && (num1 > 2147483648 - num2)))
 	{
-        return (1);
-    }
+		return (1);
+	}
 	return (0);
 }
 
-static void space_check(char **str)
+static void	space_check(char **str)
 {
 	while (**str == ' ' || **str == '\n' || **str == '\t'
 		|| **str == '\v' || **str == '\f' || **str == '\r')
 		(*str)++;
 }
 
-static int sign_check(char **str)
+static int	sign_check(char **str)
 {
-	int sign;
-	
+	int	sign;
+
 	sign = 1;
 	if (**str == '-')
 	{
@@ -51,9 +63,9 @@ int	re_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 {
 	int	sign;
 	int	result;
-	int status;
+	int	status;
 
-	result = 0;	
+	result = 0;
 	space_check(&str);
 	sign = sign_check(&str);
 	if (*str == '\0')

@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:18:36 by plertsir          #+#    #+#             */
-/*   Updated: 2023/05/18 14:49:32 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:40:27 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,20 @@ int		is_empty(t_stack *stack);
 void	free_split(char **arg_split);
 void	free_stack(t_stack *stack);
 void	get_index(t_stack *s_a, t_stack *s_b);
+void	swap(int *a, int *b);
+void	dup_stuct(int *s_a, int *s_b, int size);
 void	set_zero(int *arr, unsigned int size);
 void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b);
-void 	move_up(t_stack *stack);
+void	move_up(t_stack *stack);
 void	visulize(t_stack *stack_a, t_stack *stack_b);
 void	dup_check(t_stack *stack_a, t_stack *stack_b);
 int		re_atoi(char *str, t_stack *stack_a, t_stack *stack_b);
 void	move_down(t_stack *stack);
-void 	radix(t_stack *stack_a, t_stack *stack_b);
+void	radix(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack_a);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
 void	ra(t_stack *stack_a);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);

@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_mem.c                                         :+:      :+:    :+:   */
+/*   move_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 14:28:28 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 10:24:59 by plertsir         ###   ########.fr       */
+/*   Created: 2023/06/06 11:31:26 by plertsir          #+#    #+#             */
+/*   Updated: 2023/06/06 11:34:05 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
+#include "libft.h"
 
-void	free_split(char **arg_split)
-{
-	size_t	i;
-
-	i = 0;
-	while (arg_split[i])
-	{
-		free(arg_split[i]);
-		i++;
-	}
-	free(arg_split);
+void	pb(t_stack *stack_a, t_stack *stack_b)
+{	
+	move_down(stack_b);
+	stack_b->nb[0] = stack_a->nb[0];
+	move_up(stack_a);
+	stack_a->nb[stack_a->size - 1] = 0;
+	stack_a->size--;
+	stack_b->size++;
+	ft_putendl_fd("pb", 1);
 }
 
-void	free_stack(t_stack *stack)
+void	sb(t_stack *stack_b)
 {
-	if (stack->nb)
-		free(stack->nb);
-	free(stack);
+	int		tmp;
+
+	tmp = stack_b->nb[0];
+	stack_b->nb[0] = stack_b->nb[1];
+	stack_b->nb[1] = tmp;
+	ft_putendl_fd("sb", 1);
 }

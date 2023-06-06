@@ -6,12 +6,13 @@
 #    By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 10:44:04 by plertsir          #+#    #+#              #
-#    Updated: 2023/05/18 17:09:08 by plertsir         ###   ########.fr        #
+#    Updated: 2023/06/06 13:21:41 by plertsir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
+#CC = gcc -fsanitize=address -g
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 LIBARIES =  -lft -L$(LIBFT_DIRECTORY)
@@ -26,8 +27,8 @@ HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = push_swap.c get_stack.c utils.c free_mem.c get_index.c\
-			   radix_sort.c move.c update_stack.c utils_2.c sort_three.c\
-
+			   radix_sort.c move_a.c  move_b.c update_stack.c utils_2.c\
+			   sort_three.c sort_five.c
 
 OBJECTS_DIRECTORY = objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))

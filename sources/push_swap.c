@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:17:32 by plertsir          #+#    #+#             */
-/*   Updated: 2023/05/18 17:06:33 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:41:43 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	get_val(t_stack *stack_a, t_stack *stack_b, char *s)
 	return (0);
 }
 
-void visulize(t_stack *stack_a, t_stack *stack_b)
+void	visulize(t_stack *stack_a, t_stack *stack_b)
 {
 	int i = 0;
 	printf("size of stack A %d \n", stack_a->size);
@@ -73,11 +73,11 @@ void visulize(t_stack *stack_a, t_stack *stack_b)
 	printf("A     B\n");
 }
 
-static void check_sort(t_stack *stack_a, t_stack *stack_b)
+static void	check_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	if(stack_a->size <= 3)
+	if (stack_a->size <= 3)
 		sort_three(stack_a);
-	else if(stack_a->size == 100)
+	else if (stack_a->size == 5)
 		sort_five(stack_a, stack_b);
 	else
 		radix(stack_a, stack_b);
@@ -101,9 +101,9 @@ int	main(int ac, char *av[])
 	dup_check(stack_a, stack_b);
 	get_index(stack_a, stack_b);
 	check_sort(stack_a, stack_b);
-	printf("----------------------");
-	printf("\nAfter sorted\n\n");
-	visulize(stack_a, stack_b);
+	// printf("----------------------");
+	// printf("\nAfter sorted\n\n");
+	// visulize(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
