@@ -9,9 +9,9 @@ static void swap(int *a, int *b)
 	*b = tmp;
 }
 
-static void dup(int *s_a, int *s_b, unsigned int size)
+static void dup(int *s_a, int *s_b, int size)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
 	while(i < size)
@@ -27,10 +27,10 @@ static void init_index(int *s_a, int *s_b, int size)
 	int		j;
 
 	i = 0;
-	while (s_a[i])
+	while (i < size)
 	{
 		j = 0;
-		while (s_b[j])
+		while (j < size)
 		{
 			if (s_a[i] == s_b[j])
 			{

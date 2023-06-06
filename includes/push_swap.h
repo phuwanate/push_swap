@@ -30,12 +30,18 @@ void	free_stack(t_stack *stack);
 void	get_index(t_stack *s_a, t_stack *s_b);
 void	set_zero(int *arr, unsigned int size);
 void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b);
-void 	radix(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
 void 	move_up(t_stack *stack);
 void	visulize(t_stack *stack_a, t_stack *stack_b);
-void	pa(t_stack *stack_a, t_stack *stack_b);
 void	dup_check(t_stack *stack_a, t_stack *stack_b);
-int		re_atoi(const char *str, t_stack *stack_a, t_stack *stack_b);
+int		re_atoi(char *str, t_stack *stack_a, t_stack *stack_b);
+void	move_down(t_stack *stack);
+void 	radix(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a);
+void	sort_five(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack_a);
+void	ra(t_stack *stack_a);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
 
 #endif

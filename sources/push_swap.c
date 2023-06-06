@@ -21,12 +21,12 @@ static t_stack	*make_stack(int capacity)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	stack->nb = malloc(sizeof(int) * capacity);
 	if (!(stack->nb))
 	{
 		free(stack);
-		return(NULL);
+		return (NULL);
 	}
 	stack->capacity = capacity;
 	stack->size = 0;
@@ -57,13 +57,13 @@ void visulize(t_stack *stack_a, t_stack *stack_b)
 	printf("size of stack A %d \n", stack_a->size);
 	printf("size of stack B %d \n", stack_b->size);
 	printf("-     -\n");
-	while(i < stack_a->max)
+	while (i < stack_a->max)
 	{
-		if(is_empty(stack_a))
+		if (is_empty(stack_a))
 			printf("      ");
 		else
 			printf("%d     ", stack_a->nb[i]);
-		if(is_empty(stack_b))
+		if (is_empty(stack_b))
 			printf("      \n");
 		else
 			printf("%d\n", stack_b->nb[i]);
@@ -73,25 +73,34 @@ void visulize(t_stack *stack_a, t_stack *stack_b)
 	printf("A     B\n");
 }
 
+static void check_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	if(stack_a->size <= 3)
+		sort_three(stack_a);
+	else if(stack_a->size == 100)
+		sort_five(stack_a, stack_b);
+	else
+		radix(stack_a, stack_b);
+}
+
 int	main(int ac, char *av[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		i;
 
-	if(ac < 2)
+	if (ac < 2)
 		exit(1);
 	stack_a = make_stack(ac - 1);
 	stack_b = make_stack(ac - 1);
-	if(!stack_a || !stack_b)
+	if (!stack_a || !stack_b)
 		force_quit(1, stack_a, stack_b);
 	i = 1;
 	while (i < ac)
 		get_val(stack_a, stack_b, av[i++]);
 	dup_check(stack_a, stack_b);
 	get_index(stack_a, stack_b);
-	visulize(stack_a, stack_b);
-	radix(stack_a, stack_b);
+	check_sort(stack_a, stack_b);
 	printf("----------------------");
 	printf("\nAfter sorted\n\n");
 	visulize(stack_a, stack_b);

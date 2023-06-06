@@ -18,19 +18,31 @@ static int get_bits(int max_num)
 void radix(t_stack *stack_a, t_stack *stack_b)
 {
 	int j;
+	int i;
 	int max_bits;
 	int max_num;
 
 	max_num = stack_a->size - 1;
 	max_bits = get_bits(max_num);
-
 	j = 0;
-	while(j <= max_bits)
+	while(j < max_bits)
 	{
-	 	while(stack_a->size)
-	 		pb(stack_a, stack_b);
- 		j++;
- 	}
-	while(stack_b->size)
- 		pa(stack_a, stack_b);
+		i = 0;
+	 	while(i <= max_num)
+		{
+	 		if(stack_a->size > 3)
+			{
+				if((stack_a->nb[0]) & (1 << j))	
+					ra(stack_a);
+				else
+					pb(stack_a, stack_b);
+			}
+			//else
+			//	sort_three(stack_a);
+			i++;
+		}
+		while(stack_b->size)
+ 			pa(stack_a, stack_b);
+		j++;
+	}
 }
