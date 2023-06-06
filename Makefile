@@ -13,7 +13,7 @@
 NAME = push_swap
 CC = gcc -fsanitize=address -g
 FLAGS = -Wall -Werror -Wextra
-LIBARIES =  -lft -L$(LIBFT_DIRECTORY)
+LIBARIES = -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_DIRECTORY)
 
 LIBFT_DIRECTORY = ./libft/
@@ -21,41 +21,64 @@ LIBFT = $(LIBFT_DIRECTORY)libft.a
 
 HEADERS_LIST = push_swap.h
 HEADERS_DIRECTORY = ./includes/
-HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
+HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
-SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = push_swap.c get_stack.c free_mem.c get_index.c\
-			   radix_sort.c move_a.c  move_b.c update_stack.c\
-			   sort_three.c sort_five.c utils.c utils_2.c utils_3.c
+SOURCES_DIRECTORY_A = ./sources/main/
+SOURCES_LIST_A = push_swap.c get_stack.c free_mem.c get_index.c update_stack.c
+
+SOURCES_DIRECTORY_B = ./sources/move/
+SOURCES_LIST_B = move_a.c move_b.c
+
+SOURCES_DIRECTORY_C = ./sources/sort/
+SOURCES_LIST_C = radix_sort.c sort_five.c sort_three.c
+
+SOURCES_DIRECTORY_D = ./sources/utils/
+SOURCES_LIST_D = utils.c utils_2.c utils_3.c
 
 OBJECTS_DIRECTORY = objects/
-OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+OBJECTS_LIST_A = $(patsubst %.c, %.o, $(SOURCES_LIST_A))
+OBJECTS_LIST_B = $(patsubst %.c, %.o, $(SOURCES_LIST_B))
+OBJECTS_LIST_C = $(patsubst %.c, %.o, $(SOURCES_LIST_C))
+OBJECTS_LIST_D = $(patsubst %.c, %.o, $(SOURCES_LIST_D))
+OBJECTS_A = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_A))
+OBJECTS_B = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_B))
+OBJECTS_C = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_C))
+OBJECTS_D = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_D))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJECTS)
-		$(CC) $(FLAGS) $(LIBARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJECTS_A) $(OBJECTS_B) $(OBJECTS_C) $(OBJECTS_D)
+	$(CC) $(FLAGS) $(LIBARIES) $(INCLUDES) $(OBJECTS_A) $(OBJECTS_B) $(OBJECTS_C) $(OBJECTS_D) -o $(NAME)
 
 $(OBJECTS_DIRECTORY):
-		mkdir -p $(OBJECTS_DIRECTORY)
-	
-$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY)%.c $(HEADERS)
-		$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+	mkdir -p $(OBJECTS_DIRECTORY)
+
+$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY_A)%.c $(HEADERS)
+	$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY_B)%.c $(HEADERS)
+	$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY_C)%.c $(HEADERS)
+	$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY_D)%.c $(HEADERS)
+	$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 
 $(LIBFT):
-		$(MAKE) -sC $(LIBFT_DIRECTORY)
+	$(MAKE) -sC $(LIBFT_DIRECTORY)
 
 clean:
-		$(MAKE) -sC $(LIBFT_DIRECTORY) clean
-		rm -rf $(OBJECTS_DIRECTORY)
+	$(MAKE) -sC $(LIBFT_DIRECTORY) clean
+	rm -rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-		rm -rf $(LIBFT)
-		rm -rf $(NAME)
+	rm -rf $(LIBFT)
+	rm -rf $(NAME)
 
 re:
-		$(MAKE) fclean
-		$(MAKE) all
+	$(MAKE) fclean
+	$(MAKE) all
+
