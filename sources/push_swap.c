@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:17:32 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 13:41:43 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 14:51:38 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,17 @@ int	main(int ac, char *av[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		i;
+	int		size;
 
 	if (ac < 2)
 		exit(1);
-	stack_a = make_stack(ac - 1);
-	stack_b = make_stack(ac - 1);
+	i = 1;
+	size = 0;
+	while (i < ac)
+		size += get_capa(av[i++]);
+	printf("%d\n", size);
+	stack_a = make_stack(size);
+	stack_b = make_stack(size);
 	if (!stack_a || !stack_b)
 		force_quit(1, stack_a, stack_b);
 	i = 1;
@@ -101,9 +107,9 @@ int	main(int ac, char *av[])
 	dup_check(stack_a, stack_b);
 	get_index(stack_a, stack_b);
 	check_sort(stack_a, stack_b);
-	// printf("----------------------");
-	// printf("\nAfter sorted\n\n");
-	// visulize(stack_a, stack_b);
+	printf("----------------------");
+	printf("\nAfter sorted\n\n");
+	visulize(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

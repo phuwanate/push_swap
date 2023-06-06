@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:18:36 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 11:40:27 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 14:47:38 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_stack
 	int				max;
 }	t_stack;
 
+int		get_capa(char *s);
 int		push(t_stack *stack_a, int val);
 void	destroy_stack(t_stack *stack);
 int		is_full(t_stack *stack);
