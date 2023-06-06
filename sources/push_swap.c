@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:17:32 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 17:18:38 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:02:11 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static int	get_val(t_stack *stack_a, t_stack *stack_b, char *s)
 		push(stack_a, re_atoi(arg_split[i], stack_a, stack_b));
 		i++;
 	}
+	stack_b->max = stack_a->max;
 	free_split (arg_split);
 	return (0);
 }
@@ -114,6 +115,7 @@ int	main(int ac, char *av[])
 	printf("----------------------");
 	printf("\nAfter sorted\n\n");
 	visulize(stack_a, stack_b);
+	printf("stack max : %d\n", stack_a->max);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
