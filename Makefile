@@ -6,14 +6,12 @@
 #    By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 10:44:04 by plertsir          #+#    #+#              #
-#    Updated: 2023/06/06 14:53:21 by plertsir         ###   ########.fr        #
+#    Updated: 2023/06/06 16:49:55 by plertsir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-
 CC = gcc -fsanitize=address -g
-#CC = gcc
 FLAGS = -Wall -Werror -Wextra
 LIBARIES =  -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_DIRECTORY)

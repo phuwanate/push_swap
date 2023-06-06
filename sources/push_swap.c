@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:17:32 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 14:51:38 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:18:38 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,12 @@ void	visulize(t_stack *stack_a, t_stack *stack_b)
 
 static void	check_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size <= 3)
+	if (stack_a->size == 2)
+	{
+		if (stack_a->nb[0] > stack_a->nb[1])
+			sa(stack_a);
+	}
+	else if (stack_a->size == 3)
 		sort_three(stack_a);
 	else if (stack_a->size == 5)
 		sort_five(stack_a, stack_b);
@@ -96,7 +101,6 @@ int	main(int ac, char *av[])
 	size = 0;
 	while (i < ac)
 		size += get_capa(av[i++]);
-	printf("%d\n", size);
 	stack_a = make_stack(size);
 	stack_b = make_stack(size);
 	if (!stack_a || !stack_b)
