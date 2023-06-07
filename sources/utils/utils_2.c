@@ -26,7 +26,7 @@ static int	is_valid(char *s)
 	return (0);
 }
 
-static int	check_plus(int num1, int num2, int sign)
+static int	check_flow(int num1, int num2, int sign)
 {
 	if (((sign > 0) && (num1 > 2147483647 / 10))
 		|| ((sign < 0) && (num1 > 2147483648 / 10)))
@@ -76,7 +76,7 @@ int	re_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 		force_quit(1, stack_a, stack_b);
 	while (*str >= '0' && *str <= '9')
 	{
-		status = check_plus(result, (*str - '0'), sign);
+		status = check_flow(result, (*str - '0'), sign);
 		if (status == 1)
 			force_quit(1, stack_a, stack_b);
 		result = result * 10 + (*str - '0');
