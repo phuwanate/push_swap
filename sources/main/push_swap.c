@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:17:32 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 18:02:11 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:39:57 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,27 @@ static int	get_val(t_stack *stack_a, t_stack *stack_b, char *s)
 	return (0);
 }
 
-void	visulize(t_stack *stack_a, t_stack *stack_b)
-{
-	int i = 0;
-	printf("size of stack A %d \n", stack_a->size);
-	printf("size of stack B %d \n", stack_b->size);
-	printf("-     -\n");
-	while (i < stack_a->max)
-	{
-		if (is_empty(stack_a))
-			printf("      ");
-		else
-			printf("%d     ", stack_a->nb[i]);
-		if (is_empty(stack_b))
-			printf("      \n");
-		else
-			printf("%d\n", stack_b->nb[i]);
-		i++;
-	}
-	printf("-     -\n");
-	printf("A     B\n");
-}
+// void	visulize(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	int i = 0;
+// 	printf("size of stack A %d \n", stack_a->size);
+// 	printf("size of stack B %d \n", stack_b->size);
+// 	printf("-     -\n");
+// 	while (i < stack_a->max)
+// 	{
+// 		if (is_empty(stack_a))
+// 			printf("      ");
+// 		else
+// 			printf("%d     ", stack_a->nb[i]);
+// 		if (is_empty(stack_b))
+// 			printf("      \n");
+// 		else
+// 			printf("%d\n", stack_b->nb[i]);
+// 		i++;
+// 	}
+// 	printf("-     -\n");
+// 	printf("A     B\n");
+// }
 
 static void	check_sort(t_stack *stack_a, t_stack *stack_b)
 {
@@ -111,9 +111,9 @@ int	main(int ac, char *av[])
 	dup_check(stack_a, stack_b);
 	get_index(stack_a, stack_b);
 	check_sort(stack_a, stack_b);
-	printf("----------------------");
-	printf("\nAfter sorted\n\n");
-	visulize(stack_a, stack_b);
+	// printf("----------------------");
+	// printf("\nAfter sorted\n\n");
+	// visulize(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

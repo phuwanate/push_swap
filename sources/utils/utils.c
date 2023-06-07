@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:50:59 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 16:13:37 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:40:22 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b)
 	}
 	else
 	{
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 10:38:09 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 13:01:19 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:37:02 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	to_top(int index, t_stack *stack_a, t_stack *stack_b)
 		ra(stack_a);
 		pb(stack_a, stack_b);
 	}
-	else if (index == 3)
+	else if (index == 3 && stack_a->size != 4)
 	{
 		rra(stack_a);
 		rra(stack_a);
 		pb(stack_a, stack_b);
 	}
-	else if (index == 4)
+	else
 	{
 		rra(stack_a);
 		pb(stack_a, stack_b);
