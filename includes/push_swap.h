@@ -6,7 +6,7 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:18:36 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 14:47:38 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:03:19 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct s_stack
 
 int		get_capa(char *s);
 int		push(t_stack *stack_a, int val);
-int		is_full(t_stack *stack);
-int		is_empty(t_stack *stack);
 void	free_split(char **arg_split);
 void	free_stack(t_stack *stack);
 void	get_index(t_stack *s_a, t_stack *s_b);
@@ -33,7 +31,6 @@ void	dup_stuct(int *s_a, int *s_b, int size);
 void	set_zero(int *arr, unsigned int size);
 void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b);
 void	move_up(t_stack *stack);
-void	visulize(t_stack *stack_a, t_stack *stack_b);
 void	dup_check(t_stack *stack_a, t_stack *stack_b);
 int		re_atoi(char *str, t_stack *stack_a, t_stack *stack_b);
 void	move_down(t_stack *stack);

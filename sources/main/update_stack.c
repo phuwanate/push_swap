@@ -6,11 +6,10 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:30:46 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 18:03:53 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:06:47 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 void	move_up(t_stack *stack)
@@ -28,6 +27,7 @@ void	move_up(t_stack *stack)
 void	move_down(t_stack *stack)
 {
 	int		i;
+
 	i = stack->size - 1;
 	while (i > 0)
 	{

@@ -6,16 +6,15 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 10:23:08 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 11:37:22 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:09:59 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 static int	get_bits(int max_num)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	while (max_num != 0)

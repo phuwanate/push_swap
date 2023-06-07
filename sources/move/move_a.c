@@ -6,11 +6,10 @@
 /*   By: plertsir <plertsir@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 10:23:20 by plertsir          #+#    #+#             */
-/*   Updated: 2023/06/06 17:43:43 by plertsir         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:06:55 by plertsir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 #include "libft.h"
 
