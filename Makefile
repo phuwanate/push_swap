@@ -11,8 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-#CC = gcc -fsanitize=address -g
-CC = gcc -g
+CC = cc -g
 FLAGS = -Wall -Werror -Wextra
 LIBARIES = -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_DIRECTORY)

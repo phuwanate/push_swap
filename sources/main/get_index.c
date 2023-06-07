@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	swap(int *a, int *b)
+static void	swap(int *a, int *b)
 {
 	int	tmp;
 
@@ -21,7 +21,7 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	dup_stuct(int *s_a, int *s_b, int size)
+static void	dup_struct(int *s_a, int *s_b, int size)
 {
 	int	i;
 
@@ -62,7 +62,7 @@ void	get_index(t_stack *s_a, t_stack *s_b)
 	int					status;
 	int					ok;
 
-	dup_stuct(s_a->nb, s_b->nb, s_a->size);
+	dup_struct(s_a->nb, s_b->nb, s_a->size);
 	status = 1;
 	ok = 1;
 	while (status == 1)

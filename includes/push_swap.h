@@ -26,8 +26,6 @@ int		push(t_stack *stack_a, int val);
 void	free_split(char **arg_split);
 void	free_stack(t_stack *stack);
 void	get_index(t_stack *s_a, t_stack *s_b);
-void	swap(int *a, int *b);
-void	dup_stuct(int *s_a, int *s_b, int size);
 void	set_zero(int *arr, unsigned int size);
 void	force_quit(int nb, t_stack *stack_a, t_stack *stack_b);
 void	move_up(t_stack *stack);

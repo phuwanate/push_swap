@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	find_index(t_stack *stack_a, int nb, int size)
+static int	find_index(t_stack *stack_a, int nb, int size)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ int	find_index(t_stack *stack_a, int nb, int size)
 	return (0);
 }
 
-void	to_top(int index, t_stack *stack_a, t_stack *stack_b)
+static void	to_top(int index, t_stack *stack_a, t_stack *stack_b)
 {
 	if (index == 0)
 		pb(stack_a, stack_b);
