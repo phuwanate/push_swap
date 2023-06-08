@@ -18,7 +18,6 @@ typedef struct s_stack
 	int				*nb;
 	int				capacity;
 	int				size;
-	int				max;
 }	t_stack;
 
 int		get_capa(char *s);
