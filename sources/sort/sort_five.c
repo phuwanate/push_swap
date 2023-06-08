@@ -65,7 +65,6 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	sort_three(stack_a);
 	if (stack_b->nb[0] < stack_b->nb[1])
 		sb(stack_b);
-	sort_three(stack_a);
 	pa(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
