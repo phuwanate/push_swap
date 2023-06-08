@@ -17,6 +17,5 @@ int	push(t_stack *stack_a, int val)
 {
 	stack_a->nb[stack_a->size] = val;
 	stack_a->size++;
-	stack_a->max = stack_a->size;
 	return (0);
 }
